@@ -1,80 +1,275 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+    rel="stylesheet">
+
+  <style>
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f5fdfd;
+    }
+
+    /* HEADER */
+
+    .header-petshop{
+      background: linear-gradient(90deg,#009CA6,#00c2cc);
+      padding: 15px 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    /* LOGO */
+
+    .logo-petshop{
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-petshop img{
+      width: 45px;
+      height: 45px;
+    }
+
+    .logo-petshop span{
+      color: white;
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    /* LINKS */
+
+    .nav-link{
+      color: white;
+      font-weight: 500;
+      transition: 0.3s;
+      margin-left: 15px;
+    }
+
+    .nav-link:hover{
+      color: #ffe082;
+      transform: translateY(-2px);
+    }
+
+    /* BOTÃO */
+
+    .btn-agendar{
+      background-color: white;
+      color: #009CA6;
+      border-radius: 30px;
+      padding: 10px 22px;
+      font-weight: bold;
+      border: none;
+      transition: 0.3s;
+    }
+
+    .btn-agendar:hover{
+      background-color: #ffe082;
+      transform: scale(1.05);
+    }
+
+    /* MENU MOBILE */
+
+    .navbar-toggler{
+      border: none;
+    }
+
+    .navbar-toggler:focus{
+      box-shadow: none;
+    }
+
+  </style>
 </head>
-<style>
 
-@media (min-width:576px) {
-        
-    }
+<!-- MODAL -->
 
-    @media (min-width:992px) {
-       
-    }
+<div class="modal fade" id="modalPet" tabindex="-1">
 
+  <div class="modal-dialog modal-dialog-centered">
 
-  .navbar-brand {
-    padding: 20px;
-    color: white;
-  }
+    <div class="modal-content">
 
-  .nav-link {
-    color: white;
-  }
+      <!-- TOPO -->
 
-  .nav-link active {
-    color: white;
-  }
-.navbar-toggler{
-  color: white;
-}
+      <div class="modal-header">
 
+        <h5 class="modal-title">
+          Agendamento Pet 🐾
+        </h5>
 
- 
+        <button type="button"
+          class="btn-close"
+          data-bs-dismiss="modal">
+        </button>
 
+      </div>
 
+      <!-- CORPO -->
 
-</style>
+      <div class="modal-body">
 
+        <form>
+
+          <!-- NOME -->
+
+          <div class="mb-3">
+
+            <label class="form-label">
+              Nome do Pet
+            </label>
+
+            <input type="text"
+              class="form-control"
+              placeholder="Digite o nome do pet">
+
+          </div>
+
+          <!-- SERVIÇO -->
+
+          <div class="mb-3">
+
+            <label class="form-label">
+              Serviço
+            </label>
+
+            <select class="form-select">
+
+              <option>Banho</option>
+              <option>Tosa</option>
+              <option>Consulta</option>
+              <option>Vacinação</option>
+
+            </select>
+
+          </div>
+
+          <!-- DATA -->
+
+          <div class="mb-3">
+
+            <label class="form-label">
+              Data
+            </label>
+
+            <input type="date"
+              class="form-control">
+
+          </div>
+
+        </form>
+
+      </div>
+
+      <!-- RODAPÉ -->
+
+      <div class="modal-footer">
+
+        <button type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal">
+
+          Fechar
+
+        </button>
+
+        <button type="button"
+          class="btn btn-info text-white">
+
+          Confirmar Agendamento
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
 
 
 <body>
 
-  <nav class="navbar" style="background-color:#009CA6;" data-bs-theme="light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Bosque dos Bichos</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarText">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item active">
-            <a class="nav-link " aria-current="page" href="#">Pets</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Serviços</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Produtos</a>
-          </li>
-        </ul>
+  <header class="header-petshop">
+
+    <nav class="navbar navbar-expand-lg">
+
+      <div class="container-fluid">
+
+        <!-- LOGO -->
+
+        <a class="logo-petshop" href="#">
+
+          <img src="./img/loja-de-animais.png" alt="Logo Petshop">
+
+          <span>Bosque dos Bichos</span>
+
+        </a>
+
+        <!-- BOTÃO MOBILE -->
+
+        <button class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#menuPetshop">
+
+          <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <!-- MENU -->
+
+        <div class="collapse navbar-collapse justify-content-end"
+          id="menuPetshop">
+
+          <ul class="navbar-nav align-items-center">
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Início</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Pets</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Serviços</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Produtos</a>
+            </li>
+
+            <li class="nav-item ms-3">
+              <button class="btn-agendar">
+                Agendar Banho 🐶
+              </button>
+            </li>
+
+          </ul>
+
+        </div>
 
       </div>
-    </div>
-  </nav>
 
+    </nav>
 
+  </header>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

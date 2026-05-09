@@ -1,0 +1,33 @@
+/* MODAL */
+
+.modal-content{
+  border-radius: 25px;
+  border: none;
+  overflow: hidden;
+}
+
+.modal-header{
+  background: linear-gradient(90deg,#009CA6,#00c2cc);
+  color: white;
+}
+
+.modal-title{
+  font-weight: bold;
+}
+
+.form-control,
+.form-select{
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.btn-info{
+  background-color: #009CA6;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+}
+
+.btn-info:hover{
+  background-color: #007d84;
+}
